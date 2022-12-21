@@ -11,8 +11,8 @@ asdclass IEmail(object):
         pass
 
 
-    @abstractmethod
-    def set_rasdasdeceiver(self, receiver):
+    @abstractmeasdasdthod
+    def set_rasdasdecasdasdeiver(self, receiver):
         pass
 
 
