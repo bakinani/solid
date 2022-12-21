@@ -3,7 +3,7 @@
 
 from abc import ABCMeta, abstractmethod
 
-class IEmail(object):
+asdclass IEmail(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
