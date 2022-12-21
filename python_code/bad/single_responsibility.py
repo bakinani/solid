@@ -12,7 +12,7 @@ asdclass IEmail(object):
 
 
     @abstractmethod
-    def set_receiver(self, receiver):
+    def set_rasdasdeceiver(self, receiver):
         pass
 
 
