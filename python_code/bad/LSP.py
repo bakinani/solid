@@ -6,16 +6,17 @@
 # to their behavior rather than porperties. See "Circle-Ecllipse Problem"
 # for detail.
 import copy
+import logging
 
 class Person(object):
 
     def __init__(self, position):
         self.position = position
 
-    def walk_North(self, dist):
+    def walk_north(self, dist):
         self.position[1] += dist
 
-    def walk_East(self, dist):
+    def walk_east(self, dist):
         self.position[0] += dist
 
 # `Prisoner` is a logicall natural extension of `Person`
@@ -33,16 +34,17 @@ class Prisoner(Person):
 
 def main():
     prisoner = Prisoner()
-    print "The prisoner trying to walk to north by 10 and east by -3."
+    print("The prisoner trying to walk to north by 10 and east by -3.")
     
     try:
         prisoner.walk_North(10)
         prisoner.walk_East(-3)
-    except:
-        pass
+    except KeyError as e:
+        logging.exception('error while accessing the dict')
+        raise e
     
-    print "The location of the prison: {}".format(prisoner.PRISON_LOCATION)
-    print "The current position of the prisoner: {}".format(prisoner.position)
+    print("The location of the prison: {}").format(prisoner.PRISON_LOCATION)
+    print("The current position of the prisoner: {}").format(prisoner.position)
 
 if __name__ == "__main__":
     main()
