@@ -13,16 +13,15 @@ class IEmail(object):
 
     @abstractmethod
     def set_sender(self, sender):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
 
     @abstractmethod
     def set_receiver(self, receiver):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
 
     @abstractmethod
     def set_content(self, content):
-        return "<MyML>{}</MyML>".format(self.content)
-
+        pass
 class IContent(object):
     __metaclass__ = ABCMeta
 
@@ -46,17 +45,17 @@ class Email(IEmail):
         self.__receiver = None
         self.__content = None
 
-    def setSender(self, sender):
-        if self.protocol == 'IM':
-            self.__sender = ''.join(["I'm ", sender])
-        else:
-            self.__sender = sender
-
     def setReceiver(self, receiver):
         if self.protocol == 'IM':
             self.__receiver = ''.join(["I'm ", receiver])
         else:
             self.__receiver = receiver
+
+    def setSender(self, sender):
+        if self.protocol == 'IM':
+            self.__sender = ''.join(["I'm ", sender])
+        else:
+            self.__sender = sender
 
     def setContent(self, content):
         self.__content = content.getString()
