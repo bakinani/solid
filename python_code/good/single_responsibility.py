@@ -13,22 +13,22 @@ class IEmail(object):
 
     @abstractmethod
     def set_sender(self, sender):
-        pass
+        return "<MyML>{}</MyML>".format(self.content)
 
     @abstractmethod
     def set_receiver(self, receiver):
-        pass
+        return "<MyML>{}</MyML>".format(self.content)
 
     @abstractmethod
     def set_content(self, content):
-        pass
+        return "<MyML>{}</MyML>".format(self.content)
 
 class IContent(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def getString(self):
-        pass
+    def get_string(self):
+        return "<MyML>{}</MyML>".format(self.content)
 
 class MyContent(IContent):
 
