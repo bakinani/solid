@@ -27,7 +27,7 @@ class IContent(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def getString(self):
+    def get_string(self):
         pass
 
 class MyContent(IContent):

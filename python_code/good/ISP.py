@@ -6,6 +6,7 @@
 # robot. As a result, we don't need to implement `eat` method in robot anymore.
 
 from abc import ABCMeta, abstractmethod
+import logging
 import time
 
 class Workable(object):
@@ -97,8 +98,9 @@ def main():
     try:
         break_manager.set_worker(Robot())
         break_manager.lunch_break()
-    except:
-        pass
+    except KeyError as e:
+        logging.exception('error while accessing the dict')
+        raise e
     
 if __name__ == '__main__':
     main()
