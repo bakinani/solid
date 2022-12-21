@@ -3,26 +3,28 @@
 # In this implementation, it provide the same functionality as `python_code.bad.single_responsibility`.
 # There is only one reason to modify the code of `Email` if you want to support different protocol. For
 # different content, you only need to define a new subtype of `IContent`. It's not the same in the
+
 # implementation of `python_code.bad.single_responsibility` since there are 2 senario which you have to
 # modify the code for `Email`: different content types and different protocols.
 
 from abc import ABCMeta, abstractmethod
+
+
 
 class IEmail(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
     def set_sender(self, sender):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
 
     @abstractmethod
     def set_receiver(self, receiver):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
 
     @abstractmethod
     def set_content(self, content):
-        return "<MyML>{}</MyML>".format(self.content)
-
+        pass
 class IContent(object):
     __metaclass__ = ABCMeta
 
@@ -46,17 +48,17 @@ class Email(IEmail):
         self.__receiver = None
         self.__content = None
 
-    def setSender(self, sender):
-        if self.protocol == 'IM':
-            self.__sender = ''.join(["I'm ", sender])
-        else:
-            self.__sender = sender
-
     def setReceiver(self, receiver):
         if self.protocol == 'IM':
             self.__receiver = ''.join(["I'm ", receiver])
         else:
             self.__receiver = receiver
+
+    def setSender(self, sender):
+        if self.protocol == 'IM':
+            self.__sender = ''.join(["I'm ", sender])
+        else:
+            self.__sender = sender
 
     def setContent(self, content):
         self.__content = content.getString()

@@ -8,15 +8,17 @@ class IEmail(object):
 
     @abstractmethod
     def set_sender(self, sender):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
+
 
     @abstractmethod
     def set_receiver(self, receiver):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
+
 
     @abstractmethod
     def set_content(self, content):
-        return "<MyML>{}</MyML>".format(self.content)
+        pass
 
 class Email(IEmail):
 
