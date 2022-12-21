@@ -10,9 +10,11 @@ class IEmail(object):
     def set_sender(self, sender):
         pass
 
+
     @abstractmethod
     def set_receiver(self, receiver):
         pass
+
 
     @abstractmethod
     def set_content(self, content):
